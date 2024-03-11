@@ -68,7 +68,10 @@
 // console.log(str)
 
 
-const obj1 = {name:'tom', age: 12};
-// const obj2 ={...obj1, age :10}
-const obj2 ={age :10, ...obj1} //later overwrite the previous
-console.log(obj2)
+// const obj1 = {name:'tom', age: 12};
+// // const obj2 ={...obj1, age :10}
+// const obj2 ={age :10, ...obj1} //later overwrite the previous
+// console.log(obj2)
+
+let x = 1.1111;
+console.log(parseFloat(x.toFixed(2)))
