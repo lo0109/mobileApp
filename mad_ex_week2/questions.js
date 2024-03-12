@@ -45,8 +45,21 @@
  */
 
 function accountGenerator(accountName, initBalance) {
-  // Your implementation here
+  // Your implemention here
+  let newBalance = initBalance;
+  function deposit(money) {
+    newBalance += money;
+    return `You deposited ${money} to your ${accountName} Account and the current balance is ${newBalance}.`
+  }
+  // function withdraw(money) {
+  //   newBalance -= money;
+  //   return `You withdraw ${money} in your ${accountName} Account and the current balance is ${newBalance}.`
+  // }
+  return deposit;
 }
+
+const myAccount = accountGenerator('Saving', 100);
+console.log(myAccount(50))
 
 /**
  * Exercise 2: Distributing Tips
@@ -69,6 +82,14 @@ function accountGenerator(accountName, initBalance) {
 
 function distributeTips(...args) {
   // Your implementation here
+  let obj = {food:0, drink:0};
+  for (let i in args) {
+    if (i % 2 === 0) {
+        obj['food'] += args[i];
+      } 
+    else obj['drink'] += args[i]; 
+  }
+  return obj
 }
 
 /**
@@ -100,8 +121,16 @@ function distributeTips(...args) {
 
 function greetingGenerator(defaultGreeting = "Hello") {
   // Your implementation here
+   return (name, greeting) => {
+    return `${greeting ? greeting : defaultGreeting}, ${name}!`
+  } 
 }
 
+const casualGreet = greetingGenerator();
+console.log(casualGreet('Alice')); // "Hello, Alice!"
+const formalGreet = greetingGenerator('Good day');
+console.log(formalGreet('Bob', 'Salutations')); // "Salutations, Bob!"
+console.log(formalGreet('Charlie')); // "Good day, Charlie!"
 /**
  * Exercise 4: Merge Arrays and Extract Elements
  *
@@ -123,6 +152,8 @@ function greetingGenerator(defaultGreeting = "Hello") {
 
 function mergeAndExtract(array1, array2) {
   // Your implementation here
+  const newArr = [...array1, ...array2]
+  return {first: newArr[0], second: newArr[1], remaining: newArr.splice(2)}
 }
 
 /**
@@ -153,6 +184,9 @@ function mergeAndExtract(array1, array2) {
 
 function calculateAlternatingHarmonic(n, accumulator = 0, index = 1) {
   // Your implementation here
+  if (n < index) {return accumulator}
+  else accumulator += index%2 == 0 ? -1/index : 1/index  
+  return calculateAlternatingHarmonic(n, accumulator, index += 1)
 }
 
 // Export the function for testing
