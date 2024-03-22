@@ -73,5 +73,11 @@
 // const obj2 ={age :10, ...obj1} //later overwrite the previous
 // console.log(obj2)
 
-let x = 1.1111;
-console.log(parseFloat(x.toFixed(2)))
+// let x = 1.1111;
+// console.log(parseFloat(x.toFixed(2)))
+// console.log(0||1)
+// console.log(undefined&&0)
+// console.log(undefined??0)
+
+str = 'abcdefg'
+console.log(str[0].toUpperCase() + str.slice(1))
